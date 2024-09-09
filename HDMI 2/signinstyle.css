@@ -1,0 +1,319 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f8f9fa;
+}
+
+.logo {
+    position: absolute;
+    top: 50px; 
+    left: 20px; 
+}
+
+.logo img {
+    width: 150px; 
+    height: auto; 
+    filter: contrast(5);
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    justify-content: center;
+}
+
+.navbar {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: center;
+    background-color: rgb(86, 86, 250);
+}
+
+.home-button {
+    display: inline-block;           /* Make the anchor behave like a block element */
+    padding: 10px 20px;              /* Padding inside the button */
+    color: white;                    /* Text color */
+    text-decoration: none;           /* Remove the underline */
+    border: none;                    /* No border */
+    border-radius: 5px;              /* Rounded corners */
+    font-size: 16px;                 /* Font size */
+    font-weight: bold;               /* Bold text */
+    text-transform: uppercase;       /* Uppercase text */
+    cursor: pointer;                 /* Pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+.Services-button {
+    display: inline-block;           /* Make the anchor behave like a block element */
+    padding: 10px 20px;              /* Padding inside the button */
+    color: white;                    /* Text color */
+    text-decoration: none;           /* Remove the underline */
+    border: none;                    /* No border */
+    border-radius: 5px;              /* Rounded corners */
+    font-size: 16px;                 /* Font size */
+    font-weight: bold;               /* Bold text */
+    text-transform: uppercase;       /* Uppercase text */
+    cursor: pointer;                 /* Pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth transition */
+} 
+
+.about-button {
+    display: inline-block;           /* Make the anchor behave like a block element */
+    padding: 10px 20px;              /* Padding inside the button */
+    color: white;                    /* Text color */
+    text-decoration: none;           /* Remove the underline */
+    border: none;                    /* No border */
+    border-radius: 5px;              /* Rounded corners */
+    font-size: 16px;                 /* Font size */
+    font-weight: bold;               /* Bold text */
+    text-transform: uppercase;       /* Uppercase text */
+    cursor: pointer;                 /* Pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth transition */
+}
+.Appointments-button {
+    display: inline-block;           /* Make the anchor behave like a block element */
+    padding: 10px 20px;              /* Padding inside the button */
+    color: white;                    /* Text color */
+    text-decoration: none;           /* Remove the underline */
+    border: none;                    /* No border */
+    border-radius: 5px;              /* Rounded corners */
+    font-size: 16px;                 /* Font size */
+    font-weight: bold;               /* Bold text */
+    text-transform: uppercase;       /* Uppercase text */
+    cursor: pointer;                 /* Pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+.log-button {
+    display: inline-block;           /* Make the anchor behave like a block element */
+    padding: 10px 20px;              /* Padding inside the button */
+    color: white;                    /* Text color */
+    text-decoration: none;           /* Remove the underline */
+    border: none;                    /* No border */
+    border-radius: 5px;              /* Rounded corners */
+    font-size: 16px;                 /* Font size */
+    font-weight: bold;               /* Bold text */
+    text-transform: uppercase;       /* Uppercase text */
+    cursor: pointer;                 /* Pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth transition */
+}
+/* Hover effect */
+/* .home-button:hover {
+    background-color: #45a049;      
+} */
+
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 50px;
+    margin-left: auto;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+    font-size: 18px;
+    text-transform: uppercase;
+    position: relative;
+    transition: color 0.3s ease; /* Smooth color transition */
+}
+
+.navbar ul li a:hover {
+    color: white; /* Change color on hover */
+}
+
+/* Animation on hover for a slight movement */
+.navbar ul li a:hover {
+    transform: translateY(-5px); /* Moves text slightly up when hovered */
+    transition: transform 0.3s ease; /* Smooth transition */
+}
+
+/* Continuous Animation */
+@keyframes textAnimation {
+    0% {
+        color: #000; /* Starting color */
+    }
+    50% {
+        color: #4f74f9; /* Mid-point color */
+        transform: scale(1.1); /* Slightly enlarges the text */
+    }
+    100% {
+        color: #000; /* Ending color */
+        transform: scale(1); /* Return to original size */
+    }
+}
+
+.content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%; 
+    height: 100vh; 
+}
+
+/* .image-section {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-section img {
+    max-width: 200%;
+    height: auto;
+    border-radius: 10px;
+    margin-left: 300px;
+    transform: translateX(-50%);
+    transition: bottom 1s;
+}
+
+.image-section:hover .back-img{
+    bottom: 40px;
+}
+
+.image-section:hover .main-img{
+    left: 54%;
+} */
+
+.image-section {
+    display: inline-block; /* Keep the images inline */
+    position: relative;
+    width: 800px; /* Set width for the container */
+    height: 800px; /* Set height for the container */
+    left: 80px;
+}
+
+/* Background image (shape behind the doctor image) */
+.back-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; /* This will keep the background behind the doctor image */
+    opacity: 0.2; /* Set transparency to make it subtle */
+}
+
+/* Doctor image (to be on top) */
+.main-img {
+    position: absolute;
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Align it exactly in the center */
+    z-index: 2; /* Ensures the doctor image is on top */
+    width: 80%; /* Adjust as needed */
+    height: auto;
+}
+
+/* Optional: Add hover effects for dynamic behavior */
+.image-section:hover .back-img {
+    transform: scale(1.1); /* Grows slightly on hover */
+    transition: transform 0.5s ease;
+}
+
+.image-section:hover .main-img {
+    transform: translate(-50%, -50%) scale(1.05); /* Grows slightly on hover */
+    transition: transform 0.5s ease;
+}
+
+
+
+.form-section {
+    flex: 1;
+    /* margin-right: 100px; */
+    margin: 300px;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 20px 60px rgb(0, 83, 236);
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+form input, form select {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 100%;
+}
+
+form button {
+    padding: 12px;
+    background-color: #4f74f9;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+form button:hover {
+    background-color: #3b5dd6;
+}
+
+.problem-text {
+    margin-top: 10px;
+    color: #666;
+    font-size: 14px;
+    cursor: pointer;
+    text-align: right;
+    
+}
+
+.problem-text:hover {
+    color: blue; 
+    text-decoration: underline; 
+    font-size: 15px; 
+}
+
+.social-login {
+    margin-top: 20px;
+}
+
+.social-login p {
+    margin-bottom: 10px;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+}
+
+.social-icons img {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+/* Flexbox for inline fields */
+.inline-fields {
+    display: flex;
+    gap: 10px; /* Adjusts the space between the inputs */
+}
+
+.inline-fields input, .inline-fields select {
+    flex: 1;
+}
+

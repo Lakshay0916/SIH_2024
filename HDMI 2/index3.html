@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Medication</title>
+    <link rel="stylesheet" href="styles2.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+    <header>
+        <div class="navbar">
+            <h2>Overview</h2>
+            <nav class="animate">
+                <a href="landing_page1.html">Home</a>
+                <a href="#">Analytics</a>
+                <a href="#">Patients</a>
+                <a href="#">Medications</a>
+            </nav>
+            <div class="icons">
+                <a href="Dashboard.html"><i class="fa-solid fa-user"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <section class="main-content">
+        <div class="medication-overview">
+            <h1>Patient's Medication History</h1>
+            <p>Shreya Sharma, 19</p>
+            
+            <div class="medications">
+                <!-- Medication 1 -->
+                <div class="medication-item">
+                    <div class="medication-info">
+                        <h3>Paracetamol</h3>
+                        <p>Duration: 7 days</p>
+                        <p>Dosage: 500mg, twice a day</p>
+                        <p>Doctor: Dr. Smith</p>
+                        <p>Frequency: After meals</p>
+                    </div>
+                    <div class="medication-status active">
+                        <i class="fa-regular fa-circle"></i>
+                        <span>Active</span>
+                    </div>
+                </div>
+
+                <!-- Medication 2 -->
+                <div class="medication-item">
+                    <div class="medication-info">
+                        <h3>Ibuprofen</h3>
+                        <p>Duration: 5 days</p>
+                        <p>Dosage: 400mg, once a day</p>
+                        <p>Doctor: Dr. Johnson</p>
+                        <p>Frequency: After breakfast</p>
+                    </div>
+                    <div class="medication-status completed">
+                        <i class="fa-solid fa-check"></i>
+                        <span>Completed</span>
+                    </div>
+                </div>
+
+                <!-- Medication 3 -->
+                <div class="medication-item">
+                    <div class="medication-info">
+                        <h3>Amoxicillin</h3>
+                        <p>Duration: 10 days</p>
+                        <p>Dosage: 250mg, thrice a day</p>
+                        <p>Doctor: Dr. Harris</p>
+                        <p>Frequency: Before meals</p>
+                    </div>
+                    <div class="medication-status active">
+                        <i class="fa-regular fa-circle"></i>
+                        <span>Active</span>
+                    </div>
+                </div>
+
+                <!-- Download Button -->
+                <div class="download-report">
+                    <button>Download Medication Report</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="scripts.js"></script>
+</body>
+</html>

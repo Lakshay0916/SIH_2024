@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SanaVitaCare - Health Records</title>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f7f8fc;
+      line-height: 1.6;
+      color: #333;
+    }
+    
+/* .logo {
+    position: absolute;
+    top: 50px; 
+    left: 20px; 
+    width: 150px;
+    height: 150px;
+}
+
+.logo img {
+    width: 150px; 
+    height: auto; 
+    filter: contrast(10);
+} */
+
+    /* Navbar */
+    nav {
+      background-color: #2A7FF6;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav .logo img {
+    width: 150px; 
+    height: auto; 
+    filter: contrast(10);
+}
+
+    nav .dashboard img {
+      height: 50px;
+      filter: contrast(10) brightness(2);
+    }
+
+    nav .dashboard img:hover {
+        height: 48px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2.5rem;
+    }
+
+    nav ul li {
+      display: inline-block;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: #FFD700;
+    }
+
+    /* Main section */
+    .hero {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 4rem 2rem;
+      background-color: #ffffff;
+    }
+
+    .hero .hero-text {
+      max-width: 45%;
+    }
+
+    .hero .hero-text h1 {
+      font-weight: 700;
+      font-size: 4rem;
+      color: #333;
+      margin-bottom: 1rem;
+      margin-left: 30px;
+      line-height: 1.2;
+    }
+
+    .hero .hero-text p {
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+      color: #666;
+      margin-left: 30px;
+      line-height: 1.5;
+    }
+
+    .hero img {
+      width: 50%;
+      margin-right: 50px;
+      animation: floatImage 4s ease-in-out infinite;
+    }
+
+    /* Animation for hero image */
+    @keyframes floatImage {
+      0% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-15px);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+
+    /* Features section */
+    .features {
+      text-align: center;
+      margin: 4rem 0;
+    }
+
+    .features h2 {
+      font-weight: 600;
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      color: #333;
+    }
+
+    .feature-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 15px;
+      margin-bottom: 2rem;
+      max-width: 100%;
+      height: 300px;
+      text-align: left;
+      color: white;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .feature-item img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .feature-text {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 2;
+      transition: background 0.3s ease;
+    }
+
+    .feature-text h3 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .feature-text p {
+      font-size: 1.2rem;
+      text-align: center;
+      line-height: 1.4;
+    }
+
+    /* Hover Effect */
+    .feature-item:hover img {
+      transform: scale(1.1);
+    }
+
+    .feature-item:hover .feature-text {
+        opacity: 0.9;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #f7f8fc;
+      padding: 3rem 0;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border-top: 2px solid #E0E0E0;
+    }
+
+    footer .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    footer .social-icons a {
+      color: #333;
+      font-size: 1.5rem;
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+
+    footer .social-icons a:hover {
+      color: #2A7FF6;
+      transform: scale(1.2);
+    }
+
+    footer .column {
+      text-align: center;
+    }
+
+    footer .column ul {
+      list-style: none;
+      margin-bottom: 1.5rem;
+    }
+
+    footer .column ul li {
+      margin-bottom: 0.5rem;
+    }
+
+    footer .column ul li a {
+      color: #333;
+      text-decoration: none;
+      font-weight: 600;
+      transition: transform 0.3s ease, color 0.3s ease;
+      font-size: 1rem;
+    }
+
+    footer .column ul li a:hover {
+      color: #2A7FF6;
+      transform: translateY(-5px);
+    }
+
+    footer .contact-info p {
+      margin-bottom: 0.5rem;
+      font-size: 1rem;
+      color: #666;
+    }
+
+    footer .contact-info p a {
+      color: #333;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    footer .contact-info p a:hover {
+      color: #2A7FF6;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav>
+    <div class="logo">
+      <img src="logo2.png" alt="SanaVitaCare Logo">
+    </div>
+    <div>
+      <ul>
+        <li><a href="landing_page.html">Home</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="docter.html">Appointments</a></li>
+        <li><a href="siginpage.html">SigIn up</a></li>
+        <li><a href="loginpage.html">Login </a></li>
+      </ul>
+    </div>
+    <a href="Dashboard.html">
+    <div class="dashboard"><img src="image.png" alt="dashboard"></div>
+    </a>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Health Records That Save Lives</h1>
+      <p>Quick access to vital information when it matters most.</p>
+    </div>
+    <img src="doctor.png" alt="Doctors Image">
+  </section>
+
+  <!-- Features Section -->
+  <section class="features">
+    <h2>Here's What We Can Do</h2>
+
+    <!-- Feature 1 - Patient Records -->
+    <div class="feature-item">
+      <img src="im1 copy.png" alt="Patient Records">
+      <div class="feature-text">
+        <h3>Patient Records</h3>
+        <p>From allergies and medications to past treatments, our platform safeguards your critical health data.</p>
+      </div>
+    </div>
+
+    <!-- Feature 2 - Personalized Dashboard -->
+    <div class="feature-item">
+      <img src="dashboard.jpg" alt="Personalized Dashboard">
+      <div class="feature-text">
+        <h3>Personalized Dashboard</h3>
+        <p>Monitor medical history, test results, and upcoming appointments in one place.</p>
+      </div>
+    </div>
+
+    <!-- Feature 3 - Appointments -->
+    <div class="feature-item">
+      <img src="appointments.jpg" alt="Appointments">
+      <div class="feature-text">
+        <h3>Appointments</h3>
+        <p>Manage appointments, receive reminders, and reduce waiting times with our scheduling system.</p>
+      </div>
+    </div>
+
+    <!-- Feature 4 - Emergency Access -->
+    <div class="feature-item">
+      <img src="emergency.jpg" alt="Emergency Access">
+      <div class="feature-text">
+        <h3>Emergency Access</h3>
+        <p>In critical moments, immediate access to patient history can make all the difference.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="social-icons">
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-linkedin"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+    </div>
+    <div class="contact-info">
+      <p>Email: <a href="mailto:support@sanavitacare.com">support@sanavitacare.com</a></p>
+      <p>Phone: +1 234 567 890</p>
+      <p>Address: 1234 Wellness St., Health City, USA</p>
+    </div>
+  </footer>
+</body>
+</html>

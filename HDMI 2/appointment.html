@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Appointment Scheduler</title>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <!-- Flatpickr CSS for Date Picker -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+  <style>
+    /* Card-style time slot containers */
+/* Card-style time slot containers with a new gradient */
+/* Card-style time slot containers */
+.time-slot {
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  margin: 0.3rem;
+  cursor: pointer;
+  box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  background: linear-gradient(145deg, #f0f0f0, #ffffff);
+  border: 1px solid #ddd;
+}
+
+/* Selected time slot styling */
+.time-slot.selected {
+  background-color: #3f51b5;
+  color: white;
+  box-shadow: 0px 5px 15px rgba(63, 81, 181, 0.4);
+  transform: scale(1.05);
+}
+
+/* Hover effects */
+.time-slot:hover {
+  background-color: #3f51b5;
+  color: white;
+  box-shadow: 0px 5px 15px rgba(63, 81, 181, 0.2);
+}
+
+/* Selected date input */
+.selected-date-input {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  background: #f9f9f9;
+}
+
+.selected-date-input:focus {
+  border-color: #3f51b5;
+  outline: none;
+}
+
+/* Update button styles with subtle gradient */
+#time-of-day, .time-slot {
+  background: linear-gradient(135deg, #f0f0f0 0%, #ffffff 100%);
+  border: 1px solid #ccc;
+}
+
+#time-of-day:hover {
+  border-color: #3f51b5;
+  box-shadow: 0px 4px 10px rgba(63, 81, 181, 0.2);
+}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(120deg, #2AA7FF 0%, #ffff 100%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background-color: white;
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.1);
+      width: 70%;
+      max-width: 900px;
+    }
+
+    .appointment-header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .appointment-header .calendar-icon {
+      font-size: 5rem;
+      margin-right: 1rem;
+      color: #3f51b5;
+    }
+
+    .appointment-header h1 {
+      font-weight: 600;
+      color: #333;
+    }
+
+    .appointment-container {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 2rem;
+    }
+
+    .select-date, .select-time {
+      width: 45%;
+    }
+
+    .select-date h2, .select-time h2 {
+      font-weight: 600;
+      margin-bottom: 1rem;
+      text-align: center;
+      color: #3f51b5;
+    }
+
+    /* Input for displaying selected date */
+    .selected-date-input {
+      width: 100%;
+      padding: 0.8rem;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      font-size: 1rem;
+      color: #555;
+      margin-bottom: 1.5rem;
+      text-align: center;
+      box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    /* Permanent calendar styling */
+    .flatpickr-calendar {
+      width: 100%;
+      border-radius: 15px;
+      box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+
+    /* Time of day dropdown */
+    /* Time of day dropdown */
+#time-of-day {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 1.5rem;
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  background-color: white;
+  transition: border-color 0.3s ease;
+}
+
+/* Hover effect with simple border color change */
+#time-of-day:hover {
+  border-color: #6a0dad; /* Purple border on hover */
+}
+
+
+    .time-slots {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .time-slot {
+      padding: 0.5rem 1rem;
+      border: 1px solid #ddd;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      color: #333;
+      margin: 0.3rem;
+      background-color: white;
+      cursor: pointer;
+      box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .time-slot.selected {
+      background-color: #3f51b5;
+      color: white;
+      box-shadow: 0px 5px 15px rgba(63, 81, 181, 0.4);
+    }
+
+    .time-slot:hover {
+      background-color: #3f51b5;
+      color: rgb(23, 20, 212);
+      box-shadow: 0px 5px 15px rgba(63, 81, 181, 0.2);
+    }
+
+    .confirm-btn {
+      margin-top: 1.5rem;
+      width: 100%;
+      padding: 0.8rem;
+      font-size: 1.2rem;
+      color: white;
+      background-color: #3f51b5;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      margin-top: 100px;
+    }
+
+    .confirm-btn:hover {
+      background-color: #2a3b94;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="appointment-header">
+      <i class="fas fa-calendar-alt calendar-icon"></i>
+      <h1>Appointments</h1>
+    </div>
+    
+    <div class="appointment-container">
+      <div class="select-date">
+        <h2>Select date</h2>
+
+        <!-- Input to display selected date -->
+        <input type="text" id="selected-date-input" class="selected-date-input" readonly>
+
+        <!-- Permanent calendar -->
+        <div id="date-picker"></div>
+      </div>
+      
+      <div class="select-time">
+        <h2>Select time</h2>
+        <select id="time-of-day">
+          <option value="Morning">Morning</option>
+          <option value="Evening">Evening</option>
+        </select>
+        
+        <div class="time-slots" id="time-slots">
+          <!-- Morning slots -->
+          <button class="time-slot morning-slot">09:00 AM</button>
+          <button class="time-slot morning-slot">09:30 AM</button>
+          <button class="time-slot morning-slot">10:00 AM</button>
+          <button class="time-slot morning-slot">10:30 AM</button>
+          <button class="time-slot morning-slot">11:00 AM</button>
+          <button class="time-slot morning-slot">11:30 AM</button>
+
+          <!-- Evening slots -->
+          <button class="time-slot evening-slot">12:00 PM</button>
+          <button class="time-slot evening-slot">12:30 PM</button>
+          <button class="time-slot evening-slot">01:00 PM</button>
+          <button class="time-slot evening-slot">01:30 PM</button>
+          <button class="time-slot evening-slot">02:00 PM</button>
+          <button class="time-slot evening-slot">02:30 PM</button>
+          <button class="time-slot evening-slot">03:00 PM</button>
+        </div>
+    <a href="index4.html">
+        <button class="confirm-btn">Confirm</button>
+    </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Flatpickr JavaScript for Calendar -->
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Initialize flatpickr calendar
+      const datePicker = flatpickr('#date-picker', {
+        inline: true,
+        onChange: function (selectedDates, dateStr, instance) {
+          const dateInput = document.getElementById('selected-date-input');
+          dateInput.value = dateStr;
+        }
+      });
+
+      // Handle time of day selection
+      const timeOfDaySelect = document.getElementById('time-of-day');
+      const morningSlots = document.querySelectorAll('.morning-slot');
+      const eveningSlots = document.querySelectorAll('.evening-slot');
+
+      function updateTimeSlots() {
+        const timeOfDay = timeOfDaySelect.value;
+        
+        if (timeOfDay === 'Morning') {
+          morningSlots.forEach(slot => slot.style.display = 'inline-block');
+          eveningSlots.forEach(slot => slot.style.display = 'none');
+        } else {
+          morningSlots.forEach(slot => slot.style.display = 'none');
+          eveningSlots.forEach(slot => slot.style.display = 'inline-block');
+        }
+      }
+
+      timeOfDaySelect.addEventListener('change', updateTimeSlots);
+      updateTimeSlots(); // Initial call to set correct slots
+
+      // Handle time slots selection
+      const timeSlots = document.querySelectorAll('.time-slot');
+      timeSlots.forEach(slot => {
+        slot.addEventListener('click', () => {
+          timeSlots.forEach(slot => slot.classList.remove('selected')); // Unselect other slots
+          slot.classList.add('selected'); // Select the clicked slot
+        });
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Sangvita Care</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 50px;
+        }
+
+        .logo img {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 200px;
+            height: 200px;
+            margin-right: 1500px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            margin-left: 20px;
+        }
+
+        h1 {
+            font-size: 48px;
+            color: #2AA8FF;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 36px;
+            color: #333;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        button {
+            background-color: #2AA8FF;
+            color: #fff;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .search-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-top: 50px;
+            padding: 50px;
+            width: 350px;
+            background-color: #cfe4fa;
+            border-radius: 25px;
+            box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.1);
+            margin-right: 998px;
+        }
+
+        .search-box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 10px;
+            padding: 10px;
+            border-radius: 50px;
+            background-color: #fff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 350px;
+        }
+
+        .search-box select {
+            background: transparent;
+            color: #333;
+            border: none;
+            padding: 10px;
+            font-size: 16px;
+            outline: none;
+            width: 250px;
+            font-family: sans-serif;
+        }
+
+        .search-button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        .search-button:hover {
+            background-color: #0056b3;
+        }
+
+        .half-page-background {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background-image: url("doc_app-removebg-preview.png");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            z-index: -1;
+        }
+
+        .Text1 {
+            margin-right: auto;
+            margin-left: 50px;
+        }
+
+        select {
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background-color: transparent;
+        }
+
+        option {
+            padding: 10px;
+            background-color: #fff;
+            color: #333;
+        }
+
+        @media (max-width: 768px) {
+            h1, h2, p {
+                text-align: center;
+                margin-right: 0;
+            }
+
+            .Text1 {
+                margin-right: 0;
+            }
+
+            .search-container {
+                width: 100%;
+                padding: 30px;
+            }
+
+            .search-box select {
+                width: 100%;
+            }
+
+            .half-page-background {
+                display: none;
+            }
+        }
+        @keyframes beat {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+    </style>
+</head>
+
+<body>
+    <div class="half-page-background"></div>
+    <div class="container">
+        <div class="logo">
+            <img src="logo1.png" alt="Sangvita Care Logo">
+        </div>
+        <div class="Text1">
+            <h2>Skip the travel!</h2>
+            <h1>Take Online Doctor Consultation</h1>
+            <p>Connect instantly with a 24x7 specialist or choose to video visit a particular doctor.</p>
+        </div>
+
+        <div class="search-container">
+            <div class="search-box">
+                <select name="Location" id="Location">
+                    <option value="" selected disabled hidden>Select a Location</option>
+                    <option value="Delhi">Delhi</option>
+                    <option value="Bombay">Bombay</option>
+                    <option value="Chandigarh">Chandigarh</option>
+                </select>
+            </div>
+
+            <div class="search-box">
+                <select name="specialty" id="specialty">
+                    <option value="" selected disabled hidden>Select a Doctor type</option>
+                    <option value="Gynaecology">Gynaecology</option>
+                    <option value="ENT">ENT</option>
+                    <option value="Orthopedic">Orthopedic</option>
+                    <option value="Pediatrician">Pediatrician</option>
+                </select>
+            </div>
+
+            <div class="search-box">
+                <select name="Name" id="Name">
+                    <option value="" selected disabled hidden>Select a Doctor Name</option>
+                    <option value="Dr. Gaurav">Dr. Gaurav</option>
+                    <option value="Dr. Shreya">Dr. Shreya</option>
+                    <option value="Dr. Sarang">Dr. Sarang</option>
+                    <option value="Dr. Krishna">Dr. Krishna</option>
+                    <option value="Dr. Ayush">Dr. Ayush</option>
+                    <option value="Dr. Lakshay">Dr. Lakshay</option>
+                </select>
+            </div>
+        <a href="docprofile.html">
+            <button class="search-button">Consult Now</button>
+        </a>
+        </div>
+    </div>
+
+    <script>
+        const consultNowButton = document.getElementById('consult-now-button');
+        consultNowButton.addEventListener('click', () => {
+            alert('Consult Now button clicked!');
+        });
+    </script>
+</body>
+
+</html>
